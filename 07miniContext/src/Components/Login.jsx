@@ -8,7 +8,8 @@ function Login() {
     let handlerSubmit= (e)=>{
         e.preventDefault()
         setUser({userName, password})
-    }
+      }
+      console.log(userName)
   return (
     <div className="container ">
         <div className="form-control p-4 " style={{width : '20rem',boxShadow : '1px 2px 5px black'}}>
