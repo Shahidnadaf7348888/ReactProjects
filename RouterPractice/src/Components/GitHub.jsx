@@ -1,17 +1,21 @@
-import { useCallback, useEffect, useState } from "react"
+// import { useCallback, useEffect, useState } from "react"
+import { useLoaderData } from 'react-router-dom'
 
 function GitHub() {
-const [data, setData] = useState([])
 
-  const fetchData= useCallback(()=>{
-      fetch('https://api.github.com/users/Shahidnadaf7348888')
-      .then((res)=> res.json())
-      .then ((data)=> setData(data))
-  },[])
+  const data = useLoaderData()
+  
+// const [data, setData] = useState([])
 
-  useEffect(()=>{
-    fetchData()
-  },[fetchData])
+//   const fetchData= useCallback(()=>{
+//       fetch('https://api.github.com/users/Shahidnadaf7348888')
+//       .then((res)=> res.json())
+//       .then ((data)=> setData(data))
+//   },[])
+
+//   useEffect(()=>{
+//     fetchData()
+//   },[fetchData])
 
 
   return (
@@ -25,7 +29,7 @@ const [data, setData] = useState([])
          <h3 className="">User Name : {data.login}</h3>
        
          <div className="d-flex ps-5">
-          <h4>Followers : {data.followers}</h4>
+          <h4 className='me-2'>Followers : {data.followers}</h4>
           <h4>Following : {data.following}</h4>
         </div>
 
@@ -37,3 +41,8 @@ const [data, setData] = useState([])
 }
 
 export default GitHub
+
+export const GithubInfolder= async ()=>{
+    const resp= await fetch("https://api.github.com/users/Shahidnadaf7348888")
+    return resp.json()
+}
