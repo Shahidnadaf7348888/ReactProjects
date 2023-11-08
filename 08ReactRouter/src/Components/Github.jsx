@@ -33,7 +33,7 @@ function Github() {
 
 export default Github
 
-export const githubInfolder = async ()=>{
+export const GithubInfolder = async ()=>{
   const respon= await fetch('https://api.github.com/users/Shahidnadaf7348888')
   return respon.json()
 }
